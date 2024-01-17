@@ -6,3 +6,6 @@ Use the following to find words starting with 'a' from [Merriam-Webster Word Fin
 - SQLite
 - Multi-threading
 - Web crawler library of choice (e.g. [scrapy](https://github.com/scrapy/scrapy))
+
+### Current usage
+Run `python crawler.py`

@@ -10,9 +10,12 @@ class WordsSpider(scrapy.Spider):
 
     def parse(self, response):
         for word in response.css("li.pb-4 > a::text"):
-            yield {"word":  word.get()}
+            yield {word.root: ""}
 
-        next_page = siteURL + response.css('.next > a').attrib['href']
+        if len(response.css('.next > a')) > 0:
+            next_page = siteURL + response.css('.next > a').attrib['href']
+        else:
+            next_page = None
         #print(f'Next page: {next_page}')
         if next_page is not None:
             yield response.follow(next_page, self.parse)
